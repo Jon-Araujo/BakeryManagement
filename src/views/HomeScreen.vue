@@ -2,7 +2,7 @@
     <v-app>
         <header>
             <v-toolbar :elevation="8">
-                <v-toolbar-title>Bakery Management</v-toolbar-title>
+                <v-toolbar-title id="title">Gerenciamento de padaria</v-toolbar-title>
             </v-toolbar>
         </header>
         <main>
@@ -42,6 +42,9 @@
 </script>
 
 <style>
+    #title {
+        text-align: center;
+    }
     .card-list {
         display: flex;
         flex-direction: row;
@@ -58,7 +61,6 @@
         text-align: center;
     }
     .card-img {
-        /* width: 240px; */
         height: 40vh; 
     }
 </style>

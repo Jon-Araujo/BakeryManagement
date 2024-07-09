@@ -16,9 +16,12 @@ import { createApp } from 'vue'
 // Routes
 import router from './router/router.js';
 
+//Vuetify
+import vuetify from './plugins/vuetify';
+
 const app = createApp(App)
 
 registerPlugins(app)
 
-app.mount('#app')
-app.use(router)
+app.use(router);
+app.mount('#app');

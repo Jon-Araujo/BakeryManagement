@@ -5,6 +5,5 @@
 </template>
 
 <script setup>
-import HomeScreen from './views/HomeScreen.vue';
-
+console.log('App.vue montado com sucesso');
 </script>

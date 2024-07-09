@@ -1,16 +1,20 @@
 <template>
-    <v-app>
-        <v-app>
-        <h1>CONTROLE DE VENDAS</h1>
-        <router-link to="./">dasdas</router-link>
-    </v-app>
-    </v-app>
+    <NavBar :title="title" />
 </template>
 
 <script>
+import NavBar from '@/components/NavBar.vue';
 import { defineComponent } from 'vue';
 
     export default defineComponent({
         name: "SalesControl",
+        components: {
+            NavBar
+        },
+        data() {
+            return {
+                title: 'Controle de Vendas'
+            }
+        }
     })
 </script>

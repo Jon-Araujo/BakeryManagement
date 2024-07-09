@@ -1,19 +1,27 @@
 <template>
-    <v-app>
-        <h1>CAIXA REGISTRADORA</h1>
-        <router-link to="./">dasdas</router-link>
-    </v-app>
+    <NavBar :title="title" />
 </template>
 
 <script>
+    import NavBar from '../components/NavBar.vue';
     import { defineComponent } from 'vue';
 
     export default defineComponent({
         name: "CashRegister",
-        // methods: {
-        //     return() {
-        //         $this.router.push('./');
-        //     }
-        // }
+        components: {
+            NavBar
+        },
+        data() {
+            return {
+                title: 'Registro de Vendas'
+            }
+        }
     })
 </script>
+
+<style scoped>
+    /* .icon-toolbar {
+        height: auto;
+
+    } */
+</style>
