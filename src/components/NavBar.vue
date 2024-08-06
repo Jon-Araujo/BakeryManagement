@@ -2,7 +2,7 @@
         <v-toolbar>
             <v-toolbar-items>
                 <router-link to="/" id="icon">
-                    <v-icon color="white" size="large">mdi-home</v-icon>
+                    <v-icon color="#000" size="large">mdi-home</v-icon>
                 </router-link>
             </v-toolbar-items>
             <v-toolbar-title id="title">{{ title }}</v-toolbar-title>
