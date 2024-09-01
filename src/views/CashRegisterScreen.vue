@@ -6,17 +6,18 @@
         <v-container class="container">
             <v-row>
             <v-col cols="12">
-                <InOutRegister />
+                <InOutRegister @updateValue="priceUpdate"/>
             </v-col>
             </v-row>
-            <v-row>
+            <v-row class="flex-nowrap">
+                <div class="d-flex flex-row flex-wrap">
                     <v-col cols="2.5">
                         <v-text-field
-                        v-model="value"
                         class="input-number"
                         type="number"
                         label="Quantidade"
                         variant="solo"
+                        @input="updateTotal"
                     ></v-text-field>
                     <v-btn
                         color="primary"
@@ -28,20 +29,23 @@
                     </v-col>
                     <v-col cols="2.5">
                         <v-text-field
-                        value="{{ value }}"
+                        v-model="value"
                         class="input-number"
                         type="number"
                         label="Valor Unitário"
                         variant="solo"
-                        disabled="true"
+                        disabled
                         ></v-text-field>
                         
-                    <p>Valor Total: {{ value }}</p>
-                    </v-col>
-                <v-col cols="7">
-                    <PaymentVoucher />
+                    <p>Valor Total: R$ {{ totalValue.toFixed(2) }}</p>
                 </v-col>
-            </v-row>
+                <img src="../../src/assets/images/products/cavaca.jpg" class="img-product"/>
+                </div>
+
+                    <v-col cols="7"  d-flex flex-column>
+                        <PaymentVoucher />
+                    </v-col>
+                </v-row>
         </v-container>
     </main>
 </template>
@@ -63,6 +67,17 @@
             return {
                 title: 'Registro de Vendas',
                 value: '',
+                totalValue: 0
+            }
+        },
+        methods: {
+            priceUpdate(newValue) {
+                this.value = newValue;
+            },
+            updateTotal(value) {
+                const num = parseFloat(this.value);
+                this.totalValue = value.target.defaultValue*num;
+                return this.totalValue
             }
         }
     })
@@ -75,8 +90,6 @@
         height: 85vh;
         margin: 3vh 5vw;
         border-radius: 20px;
-        /* display: flex;
-        flex-wrap: wrap; */
     }
     .input-number {
         width: 15vw;
@@ -84,5 +97,11 @@
     .value {
         padding: 2rem;
 
+    }
+    .img-product {
+        max-height: 80%;
+        max-width: 80%;
+        object-fit: contain;
+        margin: 0 auto;
     }
 </style>
