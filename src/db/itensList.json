@@ -17,7 +17,12 @@
         "4.00"
     ],
         "images": [
-            ""
+            "../../src/assets/images/products/pao_frances.jpeg",
+            "../../src/assets/images/products/cavaca.jpg",
+            "../../src/assets/images/products/sonho.jpeg",
+            "../../src/assets/images/products/pao_suico.jpeg",
+            "../../src/assets/images/products/mortadela.jpg",
+            "../../src/assets/images/products/mucarela.jpeg"
         ]
     }
 }

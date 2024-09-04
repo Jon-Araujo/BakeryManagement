@@ -5,7 +5,7 @@
             bg-color="#FFF"
             :items="itemsList"
             v-model="selectedItem"
-            @update:modelValue="getPrice">
+            @update:modelValue="getPriceAndImage">
         </v-autocomplete>
 </template>
 
@@ -27,11 +27,12 @@
                 };
                     return this.itemsList
             },
-            async getPrice(selectedItem) {
+            async getPriceAndImage(selectedItem) {
                 const itensJson = await(await fetch('../src/db/itensList.json')).json();
                 for(let i=0; i<itensJson.data.products.length; i++) {
                     if(selectedItem === itensJson.data.products[i]) {
                         this.$emit('updateValue', itensJson.data.prices[i]);
+                        this.$emit('updateImage', itensJson.data.images[i]);
                     };
                 };
             }

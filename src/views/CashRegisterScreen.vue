@@ -6,7 +6,7 @@
         <v-container class="container">
             <v-row>
             <v-col cols="12">
-                <InOutRegister @updateValue="priceUpdate"/>
+                <InOutRegister @updateValue="priceUpdate" @updateImage="imageUpdate"/>
             </v-col>
             </v-row>
             <v-row class="flex-nowrap">
@@ -39,7 +39,10 @@
                         
                     <p>Valor Total: R$ {{ totalValue.toFixed(2) }}</p>
                 </v-col>
-                <img src="../../src/assets/images/products/cavaca.jpg" class="img-product"/>
+                <div class="container-image">
+                    <img :src="image" class="img-product"/>
+
+                </div>
                 </div>
 
                     <v-col cols="7"  d-flex flex-column>
@@ -67,7 +70,8 @@
             return {
                 title: 'Registro de Vendas',
                 value: '',
-                totalValue: 0
+                totalValue: 0,
+                image: '../../src/assets/images/charlie_patrao.png'
             }
         },
         methods: {
@@ -78,6 +82,9 @@
                 const num = parseFloat(this.value);
                 this.totalValue = value.target.defaultValue*num;
                 return this.totalValue
+            },
+            imageUpdate(newValue) {
+                this.image = newValue;
             }
         }
     })
@@ -98,10 +105,15 @@
         padding: 2rem;
 
     }
+    .container-image {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
     .img-product {
-        max-height: 80%;
-        max-width: 80%;
-        object-fit: contain;
-        margin: 0 auto;
+        width: 30vw; 
+        height: 40vh; 
+        object-fit: cover; 
+        border-radius: 8px;
     }
 </style>
