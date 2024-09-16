@@ -1,5 +1,6 @@
 <template>
     <NavBar :title="title" />
+    
 </template>
 
 <script>

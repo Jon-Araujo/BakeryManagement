@@ -19,7 +19,7 @@
             </nav>
 
             <nav>
-                <router-link to ="/sales-control">
+                <router-link to ="/verify-acess">
                     <v-card class="mx-auto card" hover>
                         <v-card-item>
                             <v-card-title class="card-title">Controle de Vendas</v-card-title>

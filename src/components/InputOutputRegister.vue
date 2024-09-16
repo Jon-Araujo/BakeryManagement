@@ -33,8 +33,10 @@
                     if(selectedItem === itensJson.data.products[i]) {
                         this.$emit('updateValue', itensJson.data.prices[i]);
                         this.$emit('updateImage', itensJson.data.images[i]);
+                        this.$emit('selectedItem', selectedItem);
                     };
                 };
+                this.$emit('resetAmount');
             }
         },
         mounted() {
